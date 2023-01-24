@@ -22,37 +22,57 @@ submitButton.addEventListener(
         const pricePerKm = 0.21;
         let ticketPrice = 0;
 
-        // Se l'utente ha meno di 18 anni applico sconto del 20%
-        if (userAge < 18) {
-            ticketPrice = userKm * pricePerKm;
-            const discountPerc = (ticketPrice / 100) * 20;
-            ticketPrice = ticketPrice - discountPerc;
+        // Se l'utente NON lascia i campi vuoti genero il biglietto
+        if (userFullname && userAge && userKm != '') {
+            // Rimuovo il messaggio di errore (in caso ci fosse)
+            document.getElementById('error_text').innerHTML = ""
+
+            // Se l'utente ha meno di 18 anni applico sconto del 20%
+            if (userAge < 18) {
+                ticketPrice = userKm * pricePerKm;
+                const discountPerc = (ticketPrice / 100) * 20;
+                ticketPrice = ticketPrice - discountPerc;
+            }
+
+            // Se l'utente ha più di 65 anni applico sconto del 40%
+            else if (userAge >= 65) {
+                ticketPrice = userKm * pricePerKm;
+                const discountPerc = (ticketPrice / 100) * 40;
+                ticketPrice = ticketPrice - discountPerc;
+            }
+
+            // Altrimenti non applico nessuno sconto
+            else {
+                ticketPrice = userKm * pricePerKm;
+            }
+
+            // Stampo il prezzo del biglietto sulla pagina
+            document.getElementById('ticket_price').innerHTML = ticketPrice.toFixed(2) + '&euro;';
+            // console.log(ticketPrice.toFixed(2));
+
+            // Stampo il nome e cognome sulla pagine
+            document.getElementById('passenger_name').innerHTML = userFullname;
+
+            // Inserisco una carrozza random
+            document.getElementById('train_coach').innerHTML = Math.floor(Math.random() * 10) + 1;
+
+            // Inserisco un codice CP random, che sarà sempre di 6 cifre
+            document.getElementById('cp_code').innerHTML = Math.floor(100000 + Math.random() * 900000);
+
+            // Imposto "display: block" quando viene premuto il bottone
+            document.getElementById('ticket_results').style = "display: block";
+
         }
 
-        // Se l'utente ha più di 65 anni applico sconto del 40%
-        else if (userAge >= 65) {
-            ticketPrice = userKm * pricePerKm;
-            const discountPerc = (ticketPrice / 100) * 40;
-            ticketPrice = ticketPrice - discountPerc;
-        }
-
-        // Altrimenti non applico nessuno sconto
+        // Altrimenti do errore
         else {
-            ticketPrice = userKm * pricePerKm;
+            // Imposto "display: none" se non vengono inseriti tutti i campi
+            document.getElementById('ticket_results').style = "display: none";
+
+            // Imposto un messaggio di errore
+            document.getElementById('error_text').innerHTML = "Impossibile generare il biglietto. Riempi i campi necessari."
         }
 
-        // Stampo il prezzo del biglietto sulla pagina
-        document.getElementById('ticket_price').innerHTML = ticketPrice.toFixed(2) + '&euro;';
-        // console.log(ticketPrice.toFixed(2));
-
-        // Stampo il nome e cognome sulla pagine
-        document.getElementById('passenger_name').innerHTML = userFullname;
-
-        // Inserisco una carrozza random
-        document.getElementById('train_coach').innerHTML = Math.floor(Math.random() * 10) + 1;
-
-        // Inserisco un codice CP random, che sarà sempre di 6 cifre
-        document.getElementById('cp_code').innerHTML = Math.floor(100000 + Math.random() * 900000);
 
     }
 )
