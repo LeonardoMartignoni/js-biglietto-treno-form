@@ -47,5 +47,12 @@ submitButton.addEventListener(
 
         // Stampo il nome e cognome sulla pagine
         document.getElementById('passenger_name').innerHTML = userFullname;
+
+        // Inserisco una carrozza random
+        document.getElementById('train_coach').innerHTML = Math.floor(Math.random() * 10) + 1;
+
+        // Inserisco un codice CP random, che sarà sempre di 6 cifre
+        document.getElementById('cp_code').innerHTML = Math.floor(100000 + Math.random() * 900000);
+
     }
 )
