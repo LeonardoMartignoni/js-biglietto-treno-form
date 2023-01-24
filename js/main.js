@@ -1,9 +1,12 @@
-let submitButton = document.getElementById('send_button');
+// Aggiungo il bottone in una variabile
+const submitButton = document.getElementById('send_button');
 
+// Aggiungo un evento quanto il bottone viene premuto
 submitButton.addEventListener(
     'click',
 
     function () {
+        // Chiedo all'utente quanti Km vuole percorrere e prendo il valore
         const userKm = document.getElementById('user_km').value;
         console.log(userKm);
 
@@ -34,37 +37,8 @@ submitButton.addEventListener(
             ticketPrice = userKm * pricePerKm;
         }
 
+        // Stampo il prezzo del biglietto sulla pagina
         document.getElementById('ticket_price').innerHTML = ticketPrice.toFixed(2) + '&euro;';
         console.log(ticketPrice.toFixed(2));
     }
 )
-
-
-// // Chiedo all'utente quanti Km vuole fare
-// const userKm = document.getElementById('user_km');
-
-// // Chiedo all'utente quanti anni ha
-// const userAge = document.getElementById('user_age');
-
-// // Fisso il prezzo per km (0.21€)
-// const pricePerKm = 0.21;
-// let ticketPrice = 0;
-
-// // Se l'utente ha meno di 18 anni applico sconto del 20%
-// if (userAge < 18) {
-//     ticketPrice = userKm * pricePerKm;
-//     const discountPerc = (ticketPrice / 100) * 20;
-//     ticketPrice = ticketPrice - discountPerc;
-// }
-
-// // Se l'utente ha più di 65 anni applico sconto del 40%
-// else if (userAge >= 65) {
-//     ticketPrice = userKm * pricePerKm;
-//     const discountPerc = (ticketPrice / 100) * 40;
-//     ticketPrice = ticketPrice - discountPerc;
-// }
-
-// // Altrimenti non applico nessuno sconto
-// else {
-//     ticketPrice = userKm * pricePerKm;
-// }
