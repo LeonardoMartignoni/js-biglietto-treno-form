@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="ticket_calculator d-flex flex-column align-items-center mt-5">
+                    <div class="ticket_calculator d-flex flex-column align-items-center mt-5 text-white">
                         <div class="ticket_calculator_content p-4 rounded-5">
                             <h2 class="text-uppercase text-center">Calcola il prezzo del biglietto</h2>
 
@@ -49,15 +49,51 @@
                                     </div>
                                 </div>
 
-                                <button class="d-block mx-auto my-3" type="button" id="send_button">Calcola</button>
+                                <button class="d-block mx-auto my-3 btn btn-light" type="button"
+                                    id="send_button">Calcola</button>
                             </form>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-12 mt-5">
+                    <div class="ticket_results d-flex justify-content-center text-black">
+                        <div class="ticket_results_content w-100 rounded-4 p-4">
+                            <div class="row">
+                                <div class="col-4 border-end border-dark">
+                                    <div class="ticket_name_content">
+                                        <h4 class="text-uppercase">Passeggero</h4>
+                                        <span class="text-capitalize" id="passenger_name"></span>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <h4>Offerta</h4>
+                                            <span>Standard</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <h4>Carrozza</h4>
+                                            <span id="train_coach">278428</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <h4>Codice CP</h4>
+                                            <span class="cp_code">278428</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <h4>Costo biglietto</h4>
+                                            <span id="ticket_price"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        <span id="ticket_price"></span>
     </main>
 
 </body>

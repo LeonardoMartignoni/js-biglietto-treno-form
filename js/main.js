@@ -6,6 +6,10 @@ submitButton.addEventListener(
     'click',
 
     function () {
+        // Chiedo all'utente il nome e cognome
+        const userFullname = document.getElementById('user_fullname').value;
+        console.log(userFullname);
+
         // Chiedo all'utente quanti Km vuole percorrere e prendo il valore
         const userKm = document.getElementById('user_km').value;
         console.log(userKm);
@@ -39,6 +43,9 @@ submitButton.addEventListener(
 
         // Stampo il prezzo del biglietto sulla pagina
         document.getElementById('ticket_price').innerHTML = ticketPrice.toFixed(2) + '&euro;';
-        console.log(ticketPrice.toFixed(2));
+        // console.log(ticketPrice.toFixed(2));
+
+        // Stampo il nome e cognome sulla pagine
+        document.getElementById('passenger_name').innerHTML = userFullname;
     }
 )
