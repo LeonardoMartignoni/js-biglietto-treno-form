@@ -34,7 +34,7 @@ submitButton.addEventListener(
             ticketPrice = userKm * pricePerKm;
         }
 
-        document.getElementById('ticket_price').innerHTML = ticketPrice.toFixed(2);
+        document.getElementById('ticket_price').innerHTML = ticketPrice.toFixed(2) + '&euro;';
         console.log(ticketPrice.toFixed(2));
     }
 )
